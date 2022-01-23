@@ -51,7 +51,7 @@ char *read_line(int *is_eof) {
     while (1) {
         char *ptr = (char *)realloc(str, (length + BUFFER_SIZE) * sizeof(char));
         if (NULL == ptr) {
-            perror("read_strings: Unable to (re)allocate memory for string");
+            printf("%s\n", "read_strings: Unable to (re)allocate memory for string");
             break;
         }
         str = ptr; // realloc may return different pointer, so we need to update str
@@ -60,7 +60,7 @@ char *read_line(int *is_eof) {
         char *check = fgets(str + length, BUFFER_SIZE, stdin);
         if (check == NULL) {
             if (errno != 0) {
-                perror("read_strings: Unable to read from stdin");
+                printf("%s\n", "read_strings: Unable to read from stdin");
             }
             *is_eof = TRUE;
             break;
