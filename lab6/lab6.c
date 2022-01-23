@@ -98,4 +98,5 @@ int main() {
     }
 
     pthread_exit(NULL);
+    return EXIT_SUCCESS;
 }
